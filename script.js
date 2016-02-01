@@ -1,6 +1,8 @@
 (function () {
 
-    angular.module('nevil', ['ngResource', 'ngSanitize', 'ngAnimate', 'ui.bootstrap', 'ui.router']);
+    'use strict';
+
+    angular.module('nevil', ['ui.bootstrap', 'ui.router']);
 
     /** [NevilRun description] */
     function NevilRun ($rootScope, $log) {
@@ -83,5 +85,12 @@
 
     angular.module('nevil').controller('PanelDirectiveController', PanelDirectiveController);
 
+})();
+
+(function () {
+
+    'use strict';
+
+    angular.module('thinhelp', ['ngResource', 'ngSanitize', 'ngAnimate']);
 
 })();
