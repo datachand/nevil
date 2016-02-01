@@ -1,20 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="nevil">
     <head>
         <meta charset="utf-8">
         <title>Nevil</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.1/angular.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.1/angular-resource.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.1/angular-sanitize.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.1/angular-animate.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.0/ui-bootstrap-tpls.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <script type="text/javascript" src="scripts/angular.min.js"></script>
+        <script type="text/javascript" src="scripts/angular-resource.min.js"></script>
+        <script type="text/javascript" src="scripts/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="scripts/angular-animate.min.js"></script>
+        <script type="text/javascript" src="scripts/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="scripts/ui-bootstrap-tpls-1.0.3.min.js"></script>
+        <script type="text/javascript" src="scripts/prefixfree.min.js"></script>
         <script type="text/javascript" src="script.js"></script>
     </head>
     <body>
-
+        <div class="container">
+            <ui-view></ui-view>
+        </div>
+        <script type="text/ng-template" id="default.html">
+            <div class="row">
+                <div class="col-md-6" ng-repeat="pandat in dc.sampleSet">
+                    <panel-directive item="{{ pandat.name }}"></panel-directive>
+                </div>
+            </div>
+        </script>
+        <script type="text/ng-template" id="panelDirective.html">
+            <div class="panel panel-default coupon coupon-{{pdc.name | lowercase}}" id="coupon-{{pdc.name | lowercase}}">
+                <div class="panel-heading" id="head">
+                    <div class="panel-title" id="title">
+                        <span class="hidden-xs">{{pdc.item}}</span>
+                        <span class="visible-xs">{{pdc.item}}</span>
+                        <span class="pull-right" uib-dropdown on-toggle="toggled(open)">
+                            <a href id="simple-dropdown" uib-dropdown-toggle>
+                                <i class="glyphicon glyphicon-option-vertical"></i>
+                            </a>
+                            <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                <li role="menuitem">
+                                    <thin-help context="{{ pdc.item }}"></thin-help>
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <img src="http://placehold.it/700x450" class="coupon-img img-rounded">
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+        </script>
     </body>
 </html>
