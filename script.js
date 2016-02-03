@@ -31,10 +31,10 @@
             templateUrl: "default.html"
         });
 
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
+        // $locationProvider.html5Mode({
+        //     enabled: true,
+        //     requireBase: false
+        // });
     }
 
     NevilConfiguration.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
