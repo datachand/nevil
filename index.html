@@ -33,15 +33,16 @@
                     <div class="panel-title" id="title">
                         <span class="hidden-xs">{{pdc.item}}</span>
                         <span class="visible-xs">{{pdc.item}}</span>
-                        <span class="pull-right" uib-dropdown on-toggle="toggled(open)">
-                            <a href id="simple-dropdown" uib-dropdown-toggle>
-                                <i class="glyphicon glyphicon-option-vertical"></i>
-                            </a>
-                            <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
-                                <li role="menuitem">
-                                    <thin-help context="{{ pdc.item }}"></thin-help>
+                        <span class="pull-right" uib-dropdown>
+                              <a href id="simple-dropdown" uib-dropdown-toggle>
+                                  <i class="glyphicon glyphicon-option-vertical"></i>
+                              </a>
+                              <ul uib-dropdown-menu aria-labelledby="simple-dropdown" class="dropdown-menu">
+                                <li>
+                                    <context-sensitive-help-directive context="{{ pdc.item }}"></context-sensitive-help-directive>
                                 </li>
-                            </ul>
+                              </ul>
+                            </span>
                         </span>
                     </div>
                 </div>
@@ -51,6 +52,9 @@
                 <div class="panel-footer">
                 </div>
             </div>
+        </script>
+        <script type="text/ng-template" id="contextSensitiveHelp.html">
+            <a href="javascript:void(0)" ng-click="cshc.togglePopover()" popover-animation="true" uib-popover="{{ cshc.contextHelpData }}" popover-title="{{ cshc.contextHelpData }}" popover-append-to-body="true" popover-placement="top">Help</a>
         </script>
     </body>
 </html>
