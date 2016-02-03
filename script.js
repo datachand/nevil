@@ -25,7 +25,7 @@
      */
     function NevilConfiguration ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider.state("default", {
-            url: "/",
+            url: "http://datachand.github.io/nevil/",
             controller: "DefaultController",
             controllerAs: "dc",
             templateUrl: "default.html"
